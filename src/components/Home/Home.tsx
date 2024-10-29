@@ -20,9 +20,6 @@ function Home() {
           <Popup>{stop.stop_name}</Popup>
         </Marker>
       ))}
-      <Marker position={nantesCenter}>
-        <Popup>Ptdr c'est le centre de Nantes</Popup>
-      </Marker>
     </MapContainer>
   );
 }
