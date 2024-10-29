@@ -11,11 +11,13 @@ export default defineConfig({
       '@assets': '/public/assets',
       '@components': '/src/components',
       '@contexts': '/src/contexts',
+      '@data': '/src/data',
       '@hooks': '/src/hooks',
       '@pages': '/src/pages',
       '@routes': '/src/routes',
       '@stores': '/src/stores',
       '@styles': '/src/styles',
+      '@appTypes': '/src/types',
       '@utils': '/src/utils'
     }
   }
