@@ -1,50 +1,27 @@
-# React + TypeScript + Vite
+# Projet DataViz - Mapping des arrêts TAN Nantes
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
 
-Currently, two official plugins are available:
+Ce projet de DataVizualisation a pour objectif de visualiser les arrêts de bus et de tram de la ville de Nantes sur une carte numérique interactive. En utilisant les données ouvertes de la Ville de Nantes et un fond de carte OpenStreetMap, l'application permet d'afficher les métadonnées associées aux arrêts, incluant les informations d'accessibilité et les correspondances avec les lignes de transport.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Fonctionnalités
 
-## Expanding the ESLint configuration
+### Étape 1 : Visualisation de base
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. **Affichage des arrêts de bus** : Représentation des arrêts de bus de Nantes sur la carte, avec des symboles distincts.
+2. **Affichage des arrêts de tram** : Visualisation des arrêts de tram sur le même fond de carte.
+3. **Affichage des métadonnées** : Accès aux informations détaillées des arrêts (accessibilité, correspondances, liens avec le tram) via clic ou survol.
+4. **Couleurs par ligne** : Connexion graphique des arrêts avec des codes couleur différents pour chaque ligne.
 
-- Configure the top-level `parserOptions` property like this:
+### Étape 2 : Améliorations
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+1. **Affichage des trajets par ligne** : Liaisons graphiques des arrêts selon les itinéraires disponibles via les données Open Data de la ville.
+2. **Photos d’arrêts** : Affichage des photos pour certains arrêts, récupérées par exemple via Google Street View.
+3. **Filtrage des données** : Option pour filtrer l'affichage selon les métadonnées et par type de ligne (bus ou tram).
+4. **Légende** : Ajout d’une légende explicative sur la carte pour faciliter la lecture des informations.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Technologies Utilisées
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- **Open Data de la Ville de Nantes** : Données de localisation et de métadonnées des arrêts de transport.
+- **OpenStreetMap** : Fond de carte, avec possibilité d’intégration via l’add-on *Leaflet*.
+- **Google Street View (facultatif)** : Pour récupérer les photos des arrêts sélectionnés.
