@@ -1,5 +1,5 @@
 import { StopSchema, TStop } from '@appTypes/Stop/StopType';
-import data from '@data/244400404_tan-arrets.json';
+import data from '@data/data.json';
 import { z } from 'zod';
 
 export const getStopInfo = (): TStop[] => {

@@ -2,31 +2,42 @@ import { Marker, Popup } from 'react-leaflet';
 import styles from '@components/Home/Home.module.css';
 import { TStop } from '@appTypes/Stop/StopType';
 
-
-const MapMarker = ( props: { marker: TStop, infos: TStop[] } ) => {
-
+const MapMarker = (props: { marker: TStop; infos: TStop[] }) => {
   const stop = props.marker;
-
-  const findChildren = props.infos.filter( l => l.parent_station === stop.stop_id );
+  console.log(stop);
   return (
-    <Marker key={ stop.stop_id } position={ [stop.stop_coordinates.lat, stop.stop_coordinates.lon] }>
+    <Marker key={stop.stop_id} position={[parseFloat(stop.lat), parseFloat(stop.lon)]}>
       <Popup>
-        <div>
-          <p>{ stop.stop_name }</p>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
+          <p>{stop.stop_name}</p>
           <p>Lignes disponibles : </p>
 
-          { findChildren.map( c => {
-            console.log( c.wheelchair_boarding );
+          {stop.childs.map((c) => {
+            console.log(c);
+
             return (
-              <div className={ styles.alignCenter }>
-                <p>{ c.stop_name }</p>
-                {
-                  c.wheelchair_boarding === '1' && <img className={ styles.handicapIcon }
-                                                        src={ 'https://accessibleicon.org/img/Accessibility%20Icon_final.svg' }
-                                                        alt={ '' } /> }
+              <div className={styles.alignCenter}>
+                <div className={styles.square} style={{ backgroundColor: `#${c.color}` }}>
+                  <p
+                    style={{
+                      color: `#${c.route_text_color}`,
+                      textAlign: 'center',
+                      margin: 0
+                    }}
+                  >
+                    {c.route_short_name}
+                  </p>
+                </div>
+                {c.wheelchair_boarding === '1' && (
+                  <img
+                    className={styles.handicapIcon}
+                    src={'https://accessibleicon.org/img/Accessibility%20Icon_final.svg'}
+                    alt={''}
+                  />
+                )}
               </div>
             );
-          } ) }
+          })}
         </div>
       </Popup>
     </Marker>
