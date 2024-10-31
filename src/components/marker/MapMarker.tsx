@@ -1,34 +1,37 @@
-import { Marker, Popup } from 'react-leaflet';
-import styles from '@components/Home/Home.module.css';
 import { TStop } from '@appTypes/Stop/StopType';
+import styles from '@components/Home/Home.module.css';
+import { Marker, Popup } from 'react-leaflet';
 
-const MapMarker = (props: { marker: TStop; infos: TStop[] }) => {
-  const stop = props.marker;
+type MapMarkerProps = {
+  stop: TStop;
+};
+
+const MapMarker = ({ stop }: MapMarkerProps) => {
   console.log(stop);
   return (
-    <Marker key={stop.stop_id} position={[parseFloat(stop.lat), parseFloat(stop.lon)]}>
+    <Marker position={[parseFloat(stop.lat), parseFloat(stop.lon)]}>
       <Popup>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
           <p>{stop.stop_name}</p>
           <p>Lignes disponibles : </p>
 
-          {stop.childs.map((c) => {
-            console.log(c);
+          {stop.childs.map((child) => {
+            console.log(child);
 
             return (
-              <div className={styles.alignCenter}>
-                <div className={styles.square} style={{ backgroundColor: `#${c.color}` }}>
+              <div key={child.name} className={styles.alignCenter}>
+                <div className={styles.square} style={{ backgroundColor: `#${child.color}` }}>
                   <p
                     style={{
-                      color: `#${c.route_text_color}`,
+                      color: `#${child.route_text_color}`,
                       textAlign: 'center',
                       margin: 0
                     }}
                   >
-                    {c.route_short_name}
+                    {child.route_short_name}
                   </p>
                 </div>
-                {c.wheelchair_boarding === '1' && (
+                {child.wheelchair_boarding === '1' && (
                   <img
                     className={styles.handicapIcon}
                     src={'https://accessibleicon.org/img/Accessibility%20Icon_final.svg'}
