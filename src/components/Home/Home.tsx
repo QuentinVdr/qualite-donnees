@@ -20,7 +20,7 @@ function Home() {
         .map((stop) => {
 
           const findChildren = stopInfo.filter(l => l.parent_station === stop.stop_id);
-          
+
 
           return (
             (
@@ -31,11 +31,12 @@ function Home() {
                     <p>Lignes disponibles : </p>
 
                       {findChildren.map(c => {
+                        console.log( c.wheelchair_boarding );
                         return (
                           <div className={ styles.alignCenter }>
-                            <p>{ c.stop_name }</p>;
+                            <p>{ c.stop_name }</p>
                             {
-                              c.wheelchair_boarding && <img className={ styles.handicapIcon }
+                              c.wheelchair_boarding === "1" && <img className={ styles.handicapIcon }
                                                             src={ 'https://accessibleicon.org/img/Accessibility%20Icon_final.svg' }
                                                             alt={ '' } /> }
                           </div>
