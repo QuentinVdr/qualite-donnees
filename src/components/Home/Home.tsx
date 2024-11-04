@@ -1,11 +1,11 @@
 import { TStop } from '@appTypes/Stop/StopType';
+import { MapLegend } from '@components/MapLegend/MapLegend';
+import MapMarker from '@components/MapMarker/MapMarker';
 import { getShapes, getStopInfo } from '@utils/fetchData';
 import 'leaflet/dist/leaflet.css';
 import { MapContainer, Polyline, TileLayer } from 'react-leaflet';
-import styles from './Home.module.css';
-import React from 'react';
 import MarkerClusterGroup from 'react-leaflet-cluster';
-import MapMarker from '@components/marker/MapMarker';
+import styles from './Home.module.css';
 
 function Home() {
   const stopInfo: TStop[] = getStopInfo();
@@ -21,6 +21,7 @@ function Home() {
       {shapesInfos.map((s) => {
         return (
           <Polyline
+            key={s.shape_id}
             positions={s.shapes.map((shape) => {
               return { lat: shape.lat, lng: shape.lon };
             })}
@@ -33,6 +34,7 @@ function Home() {
           return <MapMarker key={stop.stop_id} stop={stop} />;
         })}
       </MarkerClusterGroup>
+      <MapLegend />
     </MapContainer>
   );
 }

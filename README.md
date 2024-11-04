@@ -10,15 +10,15 @@ Ce projet de DataVizualisation a pour objectif de visualiser les arrêts de bus 
 
 - [x] **Affichage des arrêts de bus** : Représentation des arrêts de bus de Nantes sur la carte, avec des symboles distincts.
 - [x] **Affichage des arrêts de tram** : Visualisation des arrêts de tram sur le même fond de carte.
-- [ ] **Affichage des métadonnées** : Accès aux informations détaillées des arrêts (accessibilité, correspondances, liens avec le tram) via clic ou survol.
-- [ ] **Couleurs par ligne** : Connexion graphique des arrêts avec des codes couleur différents pour chaque ligne.
+- [x] **Affichage des métadonnées** : Accès aux informations détaillées des arrêts (accessibilité, correspondances, liens avec le tram) via clic ou survol.
+- [x] **Couleurs par ligne** : Connexion graphique des arrêts avec des codes couleur différents pour chaque ligne.
 
 ### Étape 2 : Améliorations
 
-- [ ] **Affichage des trajets par ligne** : Liaisons graphiques des arrêts selon les itinéraires disponibles via les données Open Data de la ville.
+- [x] **Affichage des trajets par ligne** : Liaisons graphiques des arrêts selon les itinéraires disponibles via les données Open Data de la ville.
 - [ ] **Photos d’arrêts** : Affichage des photos pour certains arrêts, récupérées par exemple via Google Street View.
 - [ ] **Filtrage des données** : Option pour filtrer l'affichage selon les métadonnées et par type de ligne (bus ou tram).
-- [ ] **Légende** : Ajout d’une légende explicite sur l'affichage.
+- [x] **Légende** : Ajout d’une légende explicite sur l'affichage.
 
 ## Technologies Utilisées
 

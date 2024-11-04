@@ -1,5 +1,6 @@
 import { TStop } from '@appTypes/Stop/StopType';
 import styles from '@components/Home/Home.module.css';
+import { blueIcon, redIcon, violetIcon } from '@components/Markers/Markers';
 import { Marker, Popup } from 'react-leaflet';
 
 type MapMarkerProps = {
@@ -7,9 +8,18 @@ type MapMarkerProps = {
 };
 
 const MapMarker = ({ stop }: MapMarkerProps) => {
-  console.log(stop);
+  const markerColor = () => {
+    if (stop.childs.some((child) => child.type === 0) && stop.childs.some((child) => child.type === 3)) {
+      return violetIcon;
+    }
+    if (stop.childs.some((child) => child.type === 0)) {
+      return blueIcon;
+    }
+    return redIcon;
+  };
+
   return (
-    <Marker position={[parseFloat(stop.lat), parseFloat(stop.lon)]}>
+    <Marker position={[parseFloat(stop.lat), parseFloat(stop.lon)]} icon={markerColor()}>
       <Popup>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
           <p>{stop.stop_name}</p>
