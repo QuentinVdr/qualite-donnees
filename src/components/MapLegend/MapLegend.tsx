@@ -3,7 +3,7 @@ import styles from './MapLegend.module.css';
 export const MapLegend = () => {
   return (
     <div className={styles.mapLegendCard}>
-      <h2>Legend de ma carte</h2>
+      <h2>Legend de la carte</h2>
       <div className={styles.legendItemList}>
         <div className={styles.legendItem}>
           <img

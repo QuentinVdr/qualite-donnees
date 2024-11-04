@@ -1,4 +1,5 @@
 import { TStop } from '@appTypes/Stop/StopType';
+import { MapFilter } from '@components/MapFilter/MapFilter';
 import { MapLegend } from '@components/MapLegend/MapLegend';
 import MapMarker from '@components/MapMarker/MapMarker';
 import { getShapes, getStopInfo } from '@utils/fetchData';
@@ -34,6 +35,7 @@ function Home() {
           return <MapMarker key={stop.stop_id} stop={stop} />;
         })}
       </MarkerClusterGroup>
+      <MapFilter />
       <MapLegend />
     </MapContainer>
   );

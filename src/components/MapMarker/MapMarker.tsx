@@ -1,6 +1,7 @@
 import { TStop } from '@appTypes/Stop/StopType';
 import styles from '@components/Home/Home.module.css';
 import { blueIcon, redIcon, violetIcon } from '@components/Markers/Markers';
+import { FilterEnum, useFilterStore } from '@stores/FilterStore';
 import { Marker, Popup } from 'react-leaflet';
 
 type MapMarkerProps = {
@@ -8,14 +9,27 @@ type MapMarkerProps = {
 };
 
 const MapMarker = ({ stop }: MapMarkerProps) => {
+  const { filter } = useFilterStore();
+
+  const gotTram = stop.childs.some((child) => child.type === 0);
+  const gotBus = stop.childs.some((child) => child.type === 3);
+
+  if (filter === FilterEnum.Tram && !gotTram) {
+    return null;
+  }
+
+  if (filter === FilterEnum.Bus && !gotBus) {
+    return null;
+  }
+
   const markerColor = () => {
-    if (stop.childs.some((child) => child.type === 0) && stop.childs.some((child) => child.type === 3)) {
-      return violetIcon;
-    }
-    if (stop.childs.some((child) => child.type === 0)) {
+    if (gotTram && !gotBus) {
       return blueIcon;
     }
-    return redIcon;
+    if (gotBus && !gotTram) {
+      return redIcon;
+    }
+    return violetIcon;
   };
 
   return (
