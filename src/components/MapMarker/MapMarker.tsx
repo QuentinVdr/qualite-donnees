@@ -35,8 +35,8 @@ const MapMarker = ({ stop }: MapMarkerProps) => {
   return (
     <Marker position={[parseFloat(stop.lat), parseFloat(stop.lon)]} icon={markerColor()}>
       <Popup>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
-          <p>{stop.stop_name}</p>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+          <h3>{stop.stop_name}</h3>
           <p>Lignes disponibles : </p>
 
           {stop.childs.map((child) => {
@@ -48,8 +48,7 @@ const MapMarker = ({ stop }: MapMarkerProps) => {
                   <p
                     style={{
                       color: `#${child.route_text_color}`,
-                      textAlign: 'center',
-                      margin: 0
+                      textAlign: 'center'
                     }}
                   >
                     {child.route_short_name}
