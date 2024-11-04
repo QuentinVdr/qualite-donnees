@@ -3,6 +3,8 @@
 ## défaut des données
 
 - Les arrêts sont dupliqués pour chaque ligne et destination possible (ex: arrêt "Duchesse Anne" est présent 4 fois)
+  - Chaque arrêt à des enfants (qui sont les différentes lignes qui passent par cet arrêt) mais il ne sont pas liés dans les données et nous devons les liers nous même.
+  - Pour récupérer toutes les informations concernant une lignes nous devons passer par 4 entités différentes (stop, route, trip, stop_time)
 - Certains arrêts sont mal placés (on peux comparer avec la carte) (ex: Duchesse Anne)
 
 ![alt text](image.png)
