@@ -1,5 +1,5 @@
 import { ShapeSchema, TShape } from '@appTypes/ShapesType';
-import { StopSchema, TStop } from '@appTypes/Stop/StopType';
+import { StopSchema, TStop } from '@appTypes/StopType';
 import data from '@data/data.json';
 import shapesData from '@data/shapesData.json';
 import { z } from 'zod';

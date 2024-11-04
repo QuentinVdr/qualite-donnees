@@ -1,4 +1,4 @@
-import { TStop, TStopChild } from '@appTypes/Stop/StopType';
+import { TStop, TStopChild } from '@appTypes/StopType';
 import styles from '@components/Home/Home.module.css';
 import { blueIcon, redIcon, violetIcon } from '@components/Markers/Markers';
 import { FilterEnum, useFilterStore } from '@stores/FilterStore';
