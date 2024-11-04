@@ -14,12 +14,20 @@ const MapMarker = ({ stop }: MapMarkerProps) => {
   const gotTram = stop.childs.some((child) => child.type === 0);
   const gotBus = stop.childs.some((child) => child.type === 3);
 
-  if (filter === FilterEnum.Tram && !gotTram) {
-    return null;
+  if (filter === FilterEnum.Tram) {
+    if (gotTram) {
+      stop.childs = stop.childs.filter((child) => child.type === 0);
+    } else {
+      return null;
+    }
   }
 
-  if (filter === FilterEnum.Bus && !gotBus) {
-    return null;
+  if (filter === FilterEnum.Bus) {
+    if (gotBus) {
+      stop.childs = stop.childs.filter((child) => child.type === 3);
+    } else {
+      return null;
+    }
   }
 
   const markerColor = () => {
@@ -40,8 +48,6 @@ const MapMarker = ({ stop }: MapMarkerProps) => {
           <p>Lignes disponibles : </p>
 
           {stop.childs.map((child) => {
-            console.log(child);
-
             return (
               <div key={child.name} className={styles.alignCenter}>
                 <div className={styles.square} style={{ backgroundColor: `#${child.color}` }}>
