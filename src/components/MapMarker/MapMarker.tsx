@@ -1,4 +1,4 @@
-import { TStop, TStopChild } from '@appTypes/StopType';
+import { TStop } from '@appTypes/StopType';
 import styles from '@components/Home/Home.module.css';
 import { blueIcon, redIcon, violetIcon } from '@components/Markers/Markers';
 import { FilterEnum, useFilterStore } from '@stores/FilterStore';
@@ -32,23 +32,13 @@ const MapMarker = ({ stop }: MapMarkerProps) => {
     return violetIcon;
   };
 
-  const filterOnType = (child: TStopChild) => {
-    if (filter === FilterEnum.Tram && child.type === 0) {
-      return true;
-    }
-    if (filter === FilterEnum.Bus && child.type === 3) {
-      return true;
-    }
-    return false;
-  };
-
   return (
     <Marker position={[parseFloat(stop.lat), parseFloat(stop.lon)]} icon={markerColor()}>
       <Popup>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
           <h3>{stop.stop_name}</h3>
           <p>Lignes disponibles : </p>
-          {stop.childs.filter(filterOnType).map((child) => {
+          {stop.childs.map((child) => {
             return (
               <div key={child.name} className={styles.alignCenter}>
                 <div className={styles.square} style={{ backgroundColor: `#${child.color}` }}>
