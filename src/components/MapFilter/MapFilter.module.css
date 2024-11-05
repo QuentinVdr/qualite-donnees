@@ -63,3 +63,12 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .mapFilterCard {
+    top: 1rem;
+    right: 1rem;
+    bottom: auto;
+    left: auto;
+  }
+}
