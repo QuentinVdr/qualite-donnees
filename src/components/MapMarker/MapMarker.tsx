@@ -1,8 +1,8 @@
 import { TStop } from '@appTypes/StopType';
-import styles from '@components/Home/Home.module.css';
 import { blueIcon, redIcon, violetIcon } from '@components/Markers/Markers';
 import { FilterEnum, useFilterStore } from '@stores/FilterStore';
 import { Marker, Popup } from 'react-leaflet';
+import styles from './Mapmarker.module.css';
 
 type MapMarkerProps = {
   stop: TStop;
@@ -35,32 +35,34 @@ const MapMarker = ({ stop }: MapMarkerProps) => {
   return (
     <Marker position={[parseFloat(stop.lat), parseFloat(stop.lon)]} icon={markerColor()}>
       <Popup>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
-          <h3>{stop.stop_name}</h3>
-          <p>Lignes disponibles : </p>
-          {stop.childs.map((child) => {
-            return (
-              <div key={child.name} className={styles.alignCenter}>
-                <div className={styles.square} style={{ backgroundColor: `#${child.color}` }}>
+        <div className={styles.markerPopup}>
+          <h2>{stop.stop_name}</h2>
+          <p className={styles.description}>Lignes disponibles : </p>
+          <div className={styles.childrenList}>
+            {stop.childs
+              .toSorted((a, b) => a.route_short_name.localeCompare(b.route_short_name))
+              .toSorted((a, b) => a.type - b.type)
+              .map((child) => (
+                <div key={`${child.name}-${child.route_short_name}`} className={styles.alignCenter}>
                   <p
+                    className={styles.square}
                     style={{
-                      color: `#${child.route_text_color}`,
-                      textAlign: 'center'
+                      backgroundColor: `#${child.color}`,
+                      color: `#${child.route_text_color}`
                     }}
                   >
                     {child.route_short_name}
                   </p>
+                  {child.wheelchair_boarding === '1' && (
+                    <img
+                      className={styles.handicapIcon}
+                      src={'https://accessibleicon.org/img/Accessibility%20Icon_final.svg'}
+                      alt="Accessible"
+                    />
+                  )}
                 </div>
-                {child.wheelchair_boarding === '1' && (
-                  <img
-                    className={styles.handicapIcon}
-                    src={'https://accessibleicon.org/img/Accessibility%20Icon_final.svg'}
-                    alt={''}
-                  />
-                )}
-              </div>
-            );
-          })}
+              ))}
+          </div>
         </div>
       </Popup>
     </Marker>
