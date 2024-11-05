@@ -1,4 +1,7 @@
 import { TStop } from '@appTypes/StopType';
+import { AccessibleIcon } from '@components/icons/AccessibleIcon';
+import { BusIcon } from '@components/icons/BusIcon';
+import { TramIcon } from '@components/icons/TramIcon';
 import { blueIcon, redIcon, violetIcon } from '@components/Markers/Markers';
 import { FilterEnum, useFilterStore } from '@stores/FilterStore';
 import { Marker, Popup } from 'react-leaflet';
@@ -53,13 +56,9 @@ const MapMarker = ({ stop }: MapMarkerProps) => {
                   >
                     {child.route_short_name}
                   </p>
-                  {child.wheelchair_boarding === '1' && (
-                    <img
-                      className={styles.handicapIcon}
-                      src={'https://accessibleicon.org/img/Accessibility%20Icon_final.svg'}
-                      alt="Accessible"
-                    />
-                  )}
+                  {child.type === 0 && <TramIcon size={28} />}
+                  {child.type === 3 && <BusIcon size={28} />}
+                  {child.wheelchair_boarding === '1' && <AccessibleIcon size={28} />}
                 </div>
               ))}
           </div>
