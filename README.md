@@ -17,7 +17,7 @@ Ce projet de DataVizualisation a pour objectif de visualiser les arrêts de bus 
 
 - [x] **Affichage des trajets par ligne** : Liaisons graphiques des arrêts selon les itinéraires disponibles via les données Open Data de la ville.
 - [ ] **Photos d’arrêts** : Affichage des photos pour certains arrêts, récupérées par exemple via Google Street View.
-- [ ] **Filtrage des données** : Option pour filtrer l'affichage selon les métadonnées et par type de ligne (bus ou tram).
+- [X] **Filtrage des données** : Option pour filtrer l'affichage selon les métadonnées et par type de ligne (bus ou tram).
 - [x] **Légende** : Ajout d’une légende explicite sur l'affichage.
 
 ## Technologies Utilisées
