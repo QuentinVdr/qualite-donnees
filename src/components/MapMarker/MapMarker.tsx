@@ -1,6 +1,7 @@
 import { TStop } from '@appTypes/StopType';
 import { AccessibleIcon } from '@components/icons/AccessibleIcon';
 import { BusIcon } from '@components/icons/BusIcon';
+import { FerryIcon } from '@components/icons/FerryIcon';
 import { TramIcon } from '@components/icons/TramIcon';
 import { blueIcon, redIcon, violetIcon } from '@components/Markers/Markers';
 import { FilterEnum, useFilterStore } from '@stores/FilterStore';
@@ -16,12 +17,17 @@ const MapMarker = ({ stop }: MapMarkerProps) => {
 
   const gotTram = stop.childs.some((child) => child.type === 0);
   const gotBus = stop.childs.some((child) => child.type === 3);
+  const gotFerry = stop.childs.some((child) => child.type === 4);
 
   if (filter === FilterEnum.Tram && !gotTram) {
     return null;
   }
 
   if (filter === FilterEnum.Bus && !gotBus) {
+    return null;
+  }
+
+  if (filter === FilterEnum.Ferry && !gotFerry) {
     return null;
   }
 
@@ -58,6 +64,7 @@ const MapMarker = ({ stop }: MapMarkerProps) => {
                   </p>
                   {child.type === 0 && <TramIcon size={28} />}
                   {child.type === 3 && <BusIcon size={28} />}
+                  {child.type === 4 && <FerryIcon size={28} />}
                   {child.wheelchair_boarding === '1' && <AccessibleIcon size={28} />}
                 </div>
               ))}

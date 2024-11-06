@@ -4,6 +4,7 @@ export const ShapeSchema = z.object({
   id: z.string(),
   color: z.string(),
   shape_id: z.string(),
+  route_type: z.number(),
   shapes: z.array(
     z.object({
       lat: z.number(),

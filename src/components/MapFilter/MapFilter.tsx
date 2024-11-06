@@ -30,6 +30,15 @@ export const MapFilter = () => {
           <input
             type="radio"
             name="radio"
+            checked={filter === FilterEnum.Ferry}
+            onClick={() => setFilter(FilterEnum.Ferry)}
+          />
+          <span>Ferry</span>
+        </label>
+        <label>
+          <input
+            type="radio"
+            name="radio"
             checked={filter === FilterEnum.All}
             onClick={() => setFilter(FilterEnum.All)}
           />

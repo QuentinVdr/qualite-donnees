@@ -21,3 +21,4 @@
 - **route_type**:
   - 0: Tramway
   - 3: Bus
+  - 4: Ferry
