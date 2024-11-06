@@ -53,15 +53,15 @@ const MapMarker = ({ stop }: MapMarkerProps) => {
               .toSorted((a, b) => a.type - b.type)
               .map((child) => (
                 <div key={`${child.name}-${child.route_short_name}`} className={styles.alignCenter}>
-                  <p
+                  <div
                     className={styles.square}
                     style={{
                       backgroundColor: `#${child.color}`,
                       color: `#${child.route_text_color}`
                     }}
                   >
-                    {child.route_short_name}
-                  </p>
+                    <p>{child.route_short_name}</p>
+                  </div>
                   {child.type === 0 && <TramIcon size={28} />}
                   {child.type === 3 && <BusIcon size={28} />}
                   {child.type === 4 && <FerryIcon size={28} />}
