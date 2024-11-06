@@ -16,18 +16,22 @@ function Home() {
 
   const { filter } = useFilterStore();
 
-  const shapesFiltered = shapesInfos.filter((shape) => {
-    if (filter === FilterEnum.Tram && shape.route_type === 0) {
-      return true;
-    }
-    if (filter === FilterEnum.Bus && shape.route_type === 3) {
-      return true;
-    }
-    if (filter === FilterEnum.Ferry && shape.route_type === 4) {
-      return true;
-    }
-    return false;
-  });
+  const shapesFiltered = () =>
+    shapesInfos.filter((shape) => {
+      if (filter === FilterEnum.All) {
+        return true;
+      }
+      if (filter === FilterEnum.Tram && shape.route_type === 0) {
+        return true;
+      }
+      if (filter === FilterEnum.Bus && shape.route_type === 3) {
+        return true;
+      }
+      if (filter === FilterEnum.Ferry && shape.route_type === 4) {
+        return true;
+      }
+      return false;
+    });
 
   return (
     <MapContainer className={styles.mapContainer} center={nantesCenter} zoom={13} scrollWheelZoom={true}>
@@ -35,7 +39,7 @@ function Home() {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      {shapesFiltered.map((s) => (
+      {shapesFiltered().map((s) => (
         <Polyline
           key={s.shape_id}
           positions={s.shapes.map((shape) => {
