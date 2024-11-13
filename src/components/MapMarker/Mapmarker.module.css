@@ -40,4 +40,21 @@
       }
     }
   }
+
+  .link {
+    border: 1px solid #4b4b4b;
+    padding: 0.33rem 0.75rem;
+    border-radius: 1rem;
+    text-decoration: inherit;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25rem;
+
+    &:hover {
+      background-color: #4b4b4b;
+      color: white;
+    }
+  }
 }

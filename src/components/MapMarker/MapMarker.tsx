@@ -1,6 +1,7 @@
 import { TStop } from '@appTypes/StopType';
 import { AccessibleIcon } from '@components/icons/AccessibleIcon';
 import { BusIcon } from '@components/icons/BusIcon';
+import { ExternalLinkIcon } from '@components/icons/ExternalLinkIcon';
 import { FerryIcon } from '@components/icons/FerryIcon';
 import { TramIcon } from '@components/icons/TramIcon';
 import { blueIcon, redIcon, violetIcon } from '@components/Markers/Markers';
@@ -68,6 +69,16 @@ const MapMarker = ({ stop }: MapMarkerProps) => {
                   {child.wheelchair_boarding === '1' && <AccessibleIcon size={28} />}
                 </div>
               ))}
+          </div>
+          <div className={styles.linkContainer}>
+            <a
+              href={`https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${stop.lat},${stop.lon}`}
+              target="_blank"
+            >
+              <button className={styles.link}>
+                <ExternalLinkIcon size={12} /> StreetView
+              </button>
+            </a>
           </div>
         </div>
       </Popup>
