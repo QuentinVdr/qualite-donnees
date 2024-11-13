@@ -53,8 +53,8 @@
     gap: 0.25rem;
 
     &:hover {
-      background-color: #4b4b4b;
-      color: white;
+      background-color: #b0b0b0;
+      border: 1px solid #bebebe;
     }
   }
 }
