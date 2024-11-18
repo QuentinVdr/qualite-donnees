@@ -21,7 +21,7 @@ export const MapLegend = () => {
             width={16}
             height={26}
           />
-          <p>Arrêt de tram et de bus</p>
+          <p>Arrêt de tram et bus</p>
         </div>
         <div className={styles.legendItem}>
           <img
@@ -34,6 +34,15 @@ export const MapLegend = () => {
         </div>
         <div className={styles.legendItem}>
           <img
+            src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-violet.png"
+            alt="marker bleu"
+            width={16}
+            height={26}
+          />
+          <p>Arrêt de bus et fery</p>
+        </div>
+        <div className={styles.legendItem}>
+          <img
             src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png"
             alt="marker bleu"
             width={16}
@@ -43,21 +52,12 @@ export const MapLegend = () => {
         </div>
         <div className={styles.legendItem}>
           <img
-            src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-violet.png"
-            alt="marker bleu"
-            width={16}
-            height={26}
-          />
-          <p>Arrêt de bus + fery</p>
-        </div>
-        <div className={styles.legendItem}>
-          <img
             src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-gold.png"
             alt="marker bleu"
             width={16}
             height={26}
           />
-          <p>Arrêt de tram + bus + fery</p>
+          <p>Arrêt de tram, bus et fery</p>
         </div>
       </div>
     </div>
