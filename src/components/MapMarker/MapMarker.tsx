@@ -4,7 +4,7 @@ import { BusIcon } from '@components/icons/BusIcon';
 import { ExternalLinkIcon } from '@components/icons/ExternalLinkIcon';
 import { FerryIcon } from '@components/icons/FerryIcon';
 import { TramIcon } from '@components/icons/TramIcon';
-import { blueIcon, redIcon, violetIcon } from '@components/Markers/Markers';
+import { blueIcon, greenIcon, orangeIcon, redIcon, violetIcon, yellowIcon } from '@components/Markers/Markers';
 import { FilterEnum, useFilterStore } from '@stores/FilterStore';
 import { Marker, Popup } from 'react-leaflet';
 import styles from './Mapmarker.module.css';
@@ -33,13 +33,29 @@ const MapMarker = ({ stop }: MapMarkerProps) => {
   }
 
   const markerColor = () => {
-    if (gotTram && !gotBus) {
-      return blueIcon;
+    if (gotTram && gotBus && gotFerry) {
+      return yellowIcon;
     }
-    if (gotBus && !gotTram) {
+
+    if (gotTram && gotBus) {
+      return orangeIcon;
+    }
+
+    if (gotBus && gotFerry) {
+      return violetIcon;
+    }
+
+    if (gotTram) {
+      return greenIcon;
+    }
+
+    if (gotBus) {
       return redIcon;
     }
-    return violetIcon;
+
+    if (gotFerry) {
+      return blueIcon;
+    }
   };
 
   return (

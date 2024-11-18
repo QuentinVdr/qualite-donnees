@@ -7,8 +7,8 @@ export const MapLegend = () => {
       <div className={styles.legendItemList}>
         <div className={styles.legendItem}>
           <img
-            src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png"
-            alt="marker bleu"
+            src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png"
+            alt="marker vert"
             width={16}
             height={26}
           />
@@ -16,8 +16,8 @@ export const MapLegend = () => {
         </div>
         <div className={styles.legendItem}>
           <img
-            src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-violet.png"
-            alt="marker bleu"
+            src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png"
+            alt="marker orange"
             width={16}
             height={26}
           />
@@ -26,11 +26,38 @@ export const MapLegend = () => {
         <div className={styles.legendItem}>
           <img
             src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png"
-            alt="marker bleu"
+            alt="marker rouge"
             width={16}
             height={26}
           />
           <p>Arrêt de bus</p>
+        </div>
+        <div className={styles.legendItem}>
+          <img
+            src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png"
+            alt="marker bleu"
+            width={16}
+            height={26}
+          />
+          <p>Arrêt de fery</p>
+        </div>
+        <div className={styles.legendItem}>
+          <img
+            src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-violet.png"
+            alt="marker bleu"
+            width={16}
+            height={26}
+          />
+          <p>Arrêt de bus + fery</p>
+        </div>
+        <div className={styles.legendItem}>
+          <img
+            src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-gold.png"
+            alt="marker bleu"
+            width={16}
+            height={26}
+          />
+          <p>Arrêt de tram + bus + fery</p>
         </div>
       </div>
     </div>
